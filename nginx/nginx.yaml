@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: mynginx
+  name: my-nginx
 
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mynginx-app
-  namespace: mynginx
+  namespace: my-nginx
 spec:
   replicas: 1
   selector:
@@ -36,7 +36,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mynginx-service
-  namespace: mynginx
+  namespace: my-nginx
 spec:
   type: LoadBalancer
   selector:
