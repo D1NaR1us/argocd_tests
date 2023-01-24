@@ -38,7 +38,7 @@ metadata:
   name: mynginx-service
   namespace: my-nginx
 spec:
-  type: LoadBalancer
+  type: NodePort 
   selector:
     app: mynginx-app
   ports:
