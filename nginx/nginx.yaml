@@ -7,20 +7,20 @@ metadata:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mynginx_app
+  name: mynginx-app
   namespace: mynginx
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mynginx_app
+      app: mynginx-app
   template:
     metadata:
       labels:
-        app: mynginx_app
+        app: mynginx-app
     spec:
       containers:
-      - name: mynginx_app
+      - name: mynginx-app
         image: nginx
         resources:
           limits:
@@ -40,7 +40,7 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    app: mynginx_app
+    app: mynginx-app
   ports:
   - name: httpport
     port: 80
