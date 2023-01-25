@@ -63,7 +63,7 @@ metadata:
   name: index-html-configmap
   namespace: my-nginx
 data:
-  index.php: |
+  index.html: |
     <HTML>
       <HEAD>
           <title>Hello World</title>
