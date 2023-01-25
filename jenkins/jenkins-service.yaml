@@ -16,3 +16,7 @@ spec:
     targetPort: 50000
     port: 50000
     nodePort: 30002
+  - name: dockerpport
+    targetPort: 2375
+    port: 2375
+    nodePort: 30003
