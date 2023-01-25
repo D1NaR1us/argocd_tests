@@ -23,10 +23,11 @@ rules:
 ---
 apiVersion: v1
 kind: ServiceAccount
-type: kubernetes.io/service-account-token 
+# type: kubernetes.io/service-account-token 
 metadata:
   name: jenkins-admin
   namespace: my-jenkins
+automountServiceAccountToken: true
 
 ---
 apiVersion: rbac.authorization.k8s.io/v1
