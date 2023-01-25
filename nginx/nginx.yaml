@@ -58,7 +58,7 @@ spec:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  - name: index-html-configmap
+  name: index-html-configmap
   namespace: my-nginx
 data:
   index.html: |
