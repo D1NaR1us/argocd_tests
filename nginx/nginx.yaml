@@ -74,4 +74,4 @@ data:
     <font color="black">Local_IP:</font> 
     <?php echo "$_SERVER['SERVER_ADDR'];" ?>
     </body>
-</HTML>
+  </HTML>
