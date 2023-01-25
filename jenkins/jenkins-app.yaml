@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    k8s-app: jenkins-app
+  name: jenkins-app
+  namespace: my-jenkins
+  annotations:
+    monitoring: "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jenkins-app
+  template:
+    metadata:
+      name: jenkins-deployment
+      labels:
+        app: jenkins-app
+    spec:
+      serviceAccount: jenkins-admin
+      containers:
+      - name: jenkins-app
+        image: jenkins/jenkins
+        resources:
+          limits:
+            memory: "1024Mi"
+            cpu: "1000m"
+          requests:
+            memory: "500Mi"
+            cpu: "500m"
+        ports:
+        - name: httpport
+          containerPort: 8080
+        - name: jnlpport
+          containerPort: 50000
+        volumeMounts:
+          - mountPath: /var/jenkins_home
+            name: jenkins-volume
+      volumes:
+      - name: jenkins-volume
+        hostPath:
+          # directory location on host
+          path: /home/dinar/shared/jenkins
+          # this field is optional
+          type: Directory
