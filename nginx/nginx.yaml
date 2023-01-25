@@ -4,6 +4,7 @@ metadata:
   name: my-nginx
 
 ---
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -29,6 +30,14 @@ spec:
         ports:
         - name: httpport
           containerPort: 80
+        volumeMounts:
+        - name: myhtml
+          mountPath: /var/nginx/html/index.html
+      volumes:
+      - name: myhtml
+        hostPath:
+          path: ./index.html
+          type: FileOrCreate
 
 ---
 
