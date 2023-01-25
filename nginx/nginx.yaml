@@ -35,6 +35,8 @@ spec:
           mountPath: /usr/share/nginx/html/
       volumes:
       - name: myhtml
+        configMap:
+          name: index-html-configmap
 
 ---
 
