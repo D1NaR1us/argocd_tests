@@ -40,13 +40,13 @@ spec:
           containerPort: 8080
         - name: jnlpport
           containerPort: 50000
-        - name: dockerpport
+        - name: dockerport
           containerPort: 2375
         volumeMounts:
           - mountPath: /var/jenkins_home
             name: jenkins-volume
-          - mountPath: /var/run/docker.sock
-            name: docker-sock
+          # - mountPath: /var/run/docker.sock
+          #   name: docker-sock
       volumes:
       - name: jenkins-volume
         hostPath:
@@ -54,7 +54,7 @@ spec:
           path: /home/dinar/shared/jenkins
           # this field is optional
           type: Directory
-      - name: docker-sock
-        hostPath:
-          path: /var/run/docker.sock
-          type: FileOrCreate
+      # - name: docker-sock
+      #   hostPath:
+      #     path: /var/run/docker.sock
+      #     type: FileOrCreate
