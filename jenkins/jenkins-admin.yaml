@@ -20,13 +20,13 @@ rules:
     resources: ["secrets"]
     verbs: ["get"]
 
-# ---
-# apiVersion: v1
-# kind: ServiceAccount
-# type: kubernetes.io/service-account-token 
-# metadata:
-#   name: jenkins-admin
-#   namespace: my-jenkins
+---
+apiVersion: v1
+kind: ServiceAccount
+type: kubernetes.io/service-account-token 
+metadata:
+  name: jenkins-admin
+  namespace: my-jenkins
 
 ---
 apiVersion: rbac.authorization.k8s.io/v1
