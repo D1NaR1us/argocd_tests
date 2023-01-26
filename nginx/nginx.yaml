@@ -21,6 +21,8 @@ spec:
         app: mynginx-app
     spec:
       containers:
+      imagePullSecrets:
+      - name: mydockerhub
       - name: mynginx-app
         image: d1nar1us/mynginx
         resources:
