@@ -21,8 +21,6 @@ spec:
         app: mynginx-app
     spec:
       containers:
-      imagePullSecrets:
-      - name: mydockerhub
       - name: mynginx-app
         image: d1nar1us/mynginx
         resources:
@@ -32,6 +30,8 @@ spec:
         ports:
         - name: httpport
           containerPort: 80
+      imagePullSecrets:
+      - name: mydockerhub
       #   volumeMounts:
       #   - name: myhtml
       #     mountPath: /usr/share/nginx/html/
