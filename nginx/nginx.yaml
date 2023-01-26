@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: mynginx-app
-        image: nginx
+        image: d1nar1us/mynginx
         resources:
           limits:
             memory: "128Mi"
@@ -30,13 +30,13 @@ spec:
         ports:
         - name: httpport
           containerPort: 80
-        volumeMounts:
-        - name: myhtml
-          mountPath: /usr/share/nginx/html/
-      volumes:
-      - name: myhtml
-        configMap:
-          name: index-html-configmap
+      #   volumeMounts:
+      #   - name: myhtml
+      #     mountPath: /usr/share/nginx/html/
+      # volumes:
+      # - name: myhtml
+      #   configMap:
+      #     name: index-html-configmap
 
 ---
 
@@ -55,23 +55,23 @@ spec:
     targetPort: 80
     nodePort: 32000
 
----
+# ---
 
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: index-html-configmap
-  namespace: my-nginx
-data:
-  index.html: |
-    <HTML>
-      <HEAD>
-          <title>Hello World</title>
-      <body bgcolor="gray">
-      <Center>
-          <br><font color="red"><h2>Hello World</h2></br></font>
-      </Center>
-      <font color="black">Local_IP</font> 
-      <?php echo "$_SERVER['SERVER_ADDR'];" ?>
-      </body>
-    </HTML>
+# apiVersion: v1
+# kind: ConfigMap
+# metadata:
+#   name: index-html-configmap
+#   namespace: my-nginx
+# data:
+#   index.html: |
+#     <HTML>
+#       <HEAD>
+#           <title>Hello World</title>
+#       <body bgcolor="gray">
+#       <Center>
+#           <br><font color="red"><h2>Hello World</h2></br></font>
+#       </Center>
+#       <font color="black">Local_IP</font> 
+#       <?php echo "$_SERVER['SERVER_ADDR'];" ?>
+#       </body>
+#     </HTML>
