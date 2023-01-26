@@ -19,7 +19,7 @@ jobs:
           cache: 'pip'
       - name: get tag version
         run: |
-          TAG=cat VERSION
+          TAG=$(cat VERSION)
           echo $TAG
           pip install yq
           yq -r ./nginx/nginx.yaml
