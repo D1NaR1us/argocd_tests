@@ -17,6 +17,7 @@ jobs:
       - name: use python
         uses: actions/setup-python@v4
         with:
+          python-version: 3.9
           cache: 'pip'
       - name: get tag version
         run: |
@@ -24,8 +25,10 @@ jobs:
           echo $tag
           pip install yq
           yq --arg version "${tag}" '.spec.template.spec.containers[].image|= sub(split("nginx:")[1]; $version)' nginx/nginx.yaml -yi
+          cat nginx/nginx.yaml
           git config --global user.email "my_githubuser@example.com"
-          git config --global user.name "My Github actions user"
+          git config --global user.name ${{ secrets.MYGITHUB_USERNAME }}
+          git remote add origin "https://${{ secrets.MYGITHUB_TOKEN }}@github.com/${{ secrets.MYGITHUB_USERNAME }}/argocd_tests.git"
           git add nginx/nginx.yaml
           git commit -m "updated by github actions"
           git push
