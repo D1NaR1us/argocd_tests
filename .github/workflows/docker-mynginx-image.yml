@@ -44,5 +44,5 @@ jobs:
       - name: Build and push
         run: |
           tag=$(cat VERSION)
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/mynginx:$tag
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/mynginx:$tag .
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/mynginx:$tag
