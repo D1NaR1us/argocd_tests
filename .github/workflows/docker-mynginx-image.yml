@@ -37,13 +37,13 @@ jobs:
           git commit -m "updated by github actions"
           git remote add main "https://${{ secrets.MYGITHUB_TOKEN }}@github.com/${{ secrets.MYGITHUB_USERNAME }}/argocd_tests.git"
           git push
-      # - name: Login to Docker Hub
-      #   uses: docker/login-action@v2
-      #   with:
-      #     username: ${{ secrets.DOCKERHUB_USERNAME }}
-      #     password: ${{ secrets.DOCKERHUB_TOKEN }}
-      # - name: Build and push
-      #   uses: docker/build-push-action@v3
-      #   with:
-      #     push: true
-      #     tags: ${{ secrets.DOCKERHUB_USERNAME }}/mynginx:v2.0.1
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/mynginx:$tag
