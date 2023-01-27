@@ -21,10 +21,12 @@ jobs:
       - name: get tag version
         run: |
           TAG=$(cat VERSION)
-          echo $TAG
+          echo $tag
           pip install yq
-          yq -r /nginx/nginx.yaml
-
+          yq --arg version "${tag}" '.spec.template.spec.containers[].image|= sub(split("nginx:")[1]; $version)' nginx/nginx.yaml -yi
+          git add nginx/nginx.yaml
+          git commit -m "updated by github actions"
+          git push
       # - name: Login to Docker Hub
       #   uses: docker/login-action@v2
       #   with:
