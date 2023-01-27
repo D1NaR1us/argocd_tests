@@ -24,6 +24,8 @@ jobs:
           echo $tag
           pip install yq
           yq --arg version "${tag}" '.spec.template.spec.containers[].image|= sub(split("nginx:")[1]; $version)' nginx/nginx.yaml -yi
+          git config --global user.email "my_githubuser@example.com"
+          git config --global user.name "My Github actions user"
           git add nginx/nginx.yaml
           git commit -m "updated by github actions"
           git push
