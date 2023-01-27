@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: mynginx-app
-          image: d1nar1us/mynginx:v.2
+          image: d1nar1us/mynginx:v.2.0.2
           resources:
             limits:
               memory: 128Mi
