@@ -43,7 +43,6 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Build and push
-        uses: docker/build-push-action@v3
-        with:
-          push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/mynginx:$tag
+        run: |
+          tag=$(cat VERSION)
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/mynginx:$tag
