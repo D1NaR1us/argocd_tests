@@ -14,21 +14,14 @@ spec:
         app: mynginx-app
     spec:
       containers:
-      - name: mynginx-app
-        image: d1nar1us/mynginx:v2.0
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-        ports:
-        - name: httpport
-          containerPort: 80
+        - name: mynginx-app
+          image: d1nar1us/mynginx:v.2.0.2
+          resources:
+            limits:
+              memory: 128Mi
+              cpu: 500m
+          ports:
+            - name: httpport
+              containerPort: 80
       imagePullSecrets:
-      - name: mydockerhub
-      #   volumeMounts:
-      #   - name: myhtml
-      #     mountPath: /usr/share/nginx/html/
-      # volumes:
-      # - name: myhtml
-      #   configMap:
-      #     name: index-html-configmap
+        - name: mydockerhub
