@@ -20,7 +20,7 @@ jobs:
           cache: 'pip'
       - name: get tag version
         run: |
-          TAG=$(cat VERSION)
+          tag=$(cat VERSION)
           echo $tag
           pip install yq
           yq --arg version "${tag}" '.spec.template.spec.containers[].image|= sub(split("nginx:")[1]; $version)' nginx/nginx.yaml -yi
