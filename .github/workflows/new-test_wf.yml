@@ -15,7 +15,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Run Linter
-        uses: hadolint/hadolint@v3.1.0 
+        uses: hadolint/hadolint-action@v3.0.0
         with:
           Dockerfile: dockerfiles/nginx/Dockerfile --ignore DL3008
     #steps:
