@@ -10,14 +10,14 @@ on:
 
 jobs:
   docker:
-    runs-on: ubuntu-latest
-    container:
-      image: hadolint/hadolint:latest-alpine    
+    runs-on: ubuntu-latest 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Run Linter
-        run: hadolint dockerfiles/nginx/Dockerfile --ignore DL3008
+        uses: hadolint/hadolint@v3.1.0 
+        with:
+          Dockerfile: dockerfiles/nginx/Dockerfile --ignore DL3008
     #steps:
 #      - name: checkout
 #        uses: actions/checkout@v3
