@@ -1,4 +1,4 @@
-name: Publish Nginx Docker image
+name: test_2nd_wf
 
 on:
   workflow_dispatch:
