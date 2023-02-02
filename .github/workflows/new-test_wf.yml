@@ -2,11 +2,6 @@ name: new-test_wf
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - 'main'
-    paths:
-      - dockerfiles/nginx/**
 
 jobs:
   docker:
@@ -14,40 +9,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      - name: Run Linter
-        uses: hadolint/hadolint-action@v3.0.0
-        with:
-          Dockerfile: ./dockerfiles/nginx/Dockerfile
-          ignore: DL3008
-    #steps:
-#      - name: checkout
-#        uses: actions/checkout@v3
+
       - name: use python
         uses: actions/setup-python@v4
-      - name: get tag version
-        run: |
-          tag=$(cat dockerfiles/nginx/VERSION)
-          echo $tag
-          pip install yq
-          echo ######################################################
-          cat nginx/nginx.yaml
-          echo ######################################################
-          yq --arg version "${tag}" '.spec.template.spec.containers[].image|= sub(split("nginx:")[1]; $version)' nginx/nginx.yaml -yi
-          cat nginx/nginx.yaml
-#       - name: git push
-#         run: |    
-#           git config --global user.email ${{ secrets.MYGITHUB_EMAIL }}
-#           git config --global user.name ${{ secrets.MYGITHUB_USERNAME }}
-#           git add nginx/nginx.yaml
-#           git commit -m "updated by github actions"
-#           git push
-#           echo $tag
-#       - name: Login to Docker Hub
-#         uses: docker/login-action@v2
-#         with:
-#           username: ${{ secrets.DOCKERHUB_USERNAME }}
-#           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Build and push
-        run: |
-          tag=$(cat dockerfiles/nginx/VERSION)
-          docker --version
+      - name: test python
+        run: python test.py
