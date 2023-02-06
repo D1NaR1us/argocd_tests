@@ -12,5 +12,4 @@ jobs:
 
       - name: use python
         uses: actions/setup-python@v4
-      - name: test python
-        run: python test.py
+      - run: test.py
