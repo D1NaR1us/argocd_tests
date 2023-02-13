@@ -31,8 +31,8 @@ spec:
               mountPath: /etc/nginx/certs/ca.pem
               subPath: ./SSL_certs/ca.pem
             - name: mynfs-claim
-              mountPath: /etc/nginx/certs/fullchain.pem 
-              subPath: ./SSL_certs/fullchain.pem 
+              mountPath: /etc/nginx/certs/fullchain.pem
+              subPath: ./SSL_certs/fullchain.pem
       imagePullSecrets:
         - name: mydockerhub
       volumes:
