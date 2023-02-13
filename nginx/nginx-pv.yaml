@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: test-mynfs-claim
+  namespace: my-nginx1
+spec:
+  volumeName: mynfs
+  storageClassName: nfs
+  accessModes:
+    - ReadOnlyMany
+  resources:
+    requests:
+      storage: 100Mi
+
+--- 
+
+apiVersion: v1
+kind: PersistentVolume
+metadata: 
+  name: mynfs
+  namespace: my-nginx1
+spec: 
+  accessModes: 
+    - ReadOnlyMany
+  capacity: 
+    storage: 100Mi
+  nfs: 
+    path: "/mnt/nfs_share"
+    server: mynfs.home.lab
+  storageClassName: nfs
