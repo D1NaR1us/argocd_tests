@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: mynginx-app
-          image: d1nar1us/mynginx:v.1.0.2
+          image: d1nar1us/mynginx:v.1.0.3
           resources:
             limits:
               memory: 128Mi
@@ -31,8 +31,8 @@ spec:
               mountPath: /etc/nginx/certs/ca.pem
               subPath: ./SSL_certs/ca.pem
             - name: mynfs-claim
-              mountPath: /etc/nginx/certs/fullchain.pem 
-              subPath: ./SSL_certs/fullchain.pem 
+              mountPath: /etc/nginx/certs/fullchain.pem
+              subPath: ./SSL_certs/fullchain.pem
             - name: mynfs-claim
               mountPath: /var/www/html/index.php
               subPath: ./docker_files/nginx/index.php
