@@ -21,7 +21,7 @@ spec:
               memory: 128Mi
               cpu: 500m
           ports:
-            - name: httpport1
+            - name: httpport
               containerPort: 443
           volumeMounts:
             - name: mynfs-claim
