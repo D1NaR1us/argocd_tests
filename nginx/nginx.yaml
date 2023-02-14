@@ -34,7 +34,7 @@ spec:
               mountPath: /etc/nginx/certs/fullchain.pem
               subPath: ./SSL_certs/fullchain.pem
         - name: myphp-app
-          image: 
+          image: php:fpm
           resources:
             limits:
               memory: 128Mi
