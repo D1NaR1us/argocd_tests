@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: mynginx-app
-          image: d1nar1us/mynginx:v.1.0.4
+          image: d1nar1us/mynginx:v.1.0.5
           resources:
             limits:
               memory: 128Mi
@@ -35,10 +35,6 @@ spec:
               subPath: ./SSL_certs/fullchain.pem
         - name: myphp-app
           image: php:fpm
-          # resources:
-          #   limits:
-          #     memory: 64Mi
-          #     cpu: 128m
           ports:
             - name: phpport
               containerPort: 9000
