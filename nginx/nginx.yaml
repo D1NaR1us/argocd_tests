@@ -39,9 +39,9 @@ spec:
             limits:
               memory: 128Mi
               cpu: 500m
-          ports:
-            - name: phpport
-              containerPort: 9000
+          # ports:
+          #   - name: phpport
+          #     containerPort: 9000
           volumeMounts:
             - name: mynfs-claim
               mountPath: /var/www/html/index.php
