@@ -33,6 +33,16 @@ spec:
             - name: mynfs-claim
               mountPath: /etc/nginx/certs/fullchain.pem
               subPath: ./SSL_certs/fullchain.pem
+        - name: myphp-app
+          image: 
+          resources:
+            limits:
+              memory: 128Mi
+              cpu: 500m
+          ports:
+            - name: phpport
+              containerPort: 9000
+          volumeMounts:
             - name: mynfs-claim
               mountPath: /var/www/html/index.php
               subPath: ./docker_files/nginx/index.php
