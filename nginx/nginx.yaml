@@ -35,10 +35,10 @@ spec:
               subPath: ./SSL_certs/fullchain.pem
         - name: myphp-app
           image: php:fpm
-          resources:
-            limits:
-              memory: 64Mi
-              cpu: 128m
+          # resources:
+          #   limits:
+          #     memory: 64Mi
+          #     cpu: 128m
           ports:
             - name: phpport
               containerPort: 9000
