@@ -18,8 +18,8 @@ spec:
           image: d1nar1us/mynginx:v.1.0.3
           resources:
             limits:
-              memory: 128Mi
-              cpu: 500m
+              memory: 256Mi
+              cpu: 1000m
           ports:
             - name: httpport
               containerPort: 443
