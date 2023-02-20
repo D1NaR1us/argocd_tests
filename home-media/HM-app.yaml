@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sonarr-app
+  namespace: home-media
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: HM-app
+  template:
+    metadata:
+      labels:
+        app: HM-app
+    spec:
+      containers:
+        - name: sonarr
+          image: ghcr.io/linuxserver/sonarr
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: TZ
+              value: "Asia/Yerevan"
+            - name: PUID
+              value: "1000"
+            - name: PGID
+              value: "1000"
+          ports:
+            - name: sonarr
+              containerPort: 8989
+          volumeMounts:
+            - name: HM-volume
+              mountPath: /downloads
+              subPath: ./home-media/downloads
+            - name: HM-volume
+              mountPath: /config
+              subPath: ./home-media/sonarr/config
+          resources:
+            requests:
+              memory: 256Mi
+              cpu: 128m
+            limits:
+              memory: 512Mi
+              cpu: 500m
+      volumes:
+        - name: HM-volume
+          persistentVolumeClaim:
+            claimName: HM-claim
