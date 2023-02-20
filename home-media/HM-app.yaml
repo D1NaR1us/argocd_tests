@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sonarr-app
+  name: hm-app
   namespace: home-media
 spec:
   replicas: 1
