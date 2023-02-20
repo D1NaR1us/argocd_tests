@@ -7,11 +7,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: HM-app
+      app: hm-app
   template:
     metadata:
       labels:
-        app: HM-app
+        app: hm-app
     spec:
       containers:
         - name: sonarr
@@ -28,10 +28,10 @@ spec:
             - name: sonarr
               containerPort: 8989
           volumeMounts:
-            - name: HM-volume
+            - name: hm-volume
               mountPath: /downloads
               subPath: ./home-media/downloads
-            - name: HM-volume
+            - name: hm-volume
               mountPath: /config
               subPath: ./home-media/sonarr/config
           resources:
@@ -42,6 +42,6 @@ spec:
               memory: 512Mi
               cpu: 500m
       volumes:
-        - name: HM-volume
+        - name: hm-volume
           persistentVolumeClaim:
-            claimName: HM-claim
+            claimName: hm-claim
