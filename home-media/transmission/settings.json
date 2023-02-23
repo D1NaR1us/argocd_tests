@@ -1,0 +1,11 @@
+{
+    "download-dir": "/downloads",
+
+    "incomplete-dir": "/downloads",
+
+    "rpc-host-whitelist-enabled": false,
+
+    "rpc-username": "admin",
+ 
+    "rpc-whitelist-enabled": false
+}

@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: sonarr
-          image: ghcr.io/linuxserver/sonarr
+          image: linuxserver/sonarr
           imagePullPolicy: IfNotPresent
           env:
             - name: TZ
@@ -36,11 +36,120 @@ spec:
               subPath: ./home-media/sonarr/config
           resources:
             requests:
-              memory: 256Mi
+              memory: 512Mi
               cpu: 128m
             limits:
+              memory: 1024Mi
+              cpu: 256m
+        - name: transmission
+          image: linuxserver/transmission
+          imagePullPolicy: IfNotPresent
+          env:
+          - name: TZ
+            value: "Asia/Yerevan"
+          - name: PUID
+            value: "1000"
+          - name: PGID
+            value: "1000"
+          - name: USER
+            value: "admin"
+          - name: PASS
+            value: "tgbyhn123"
+          ports:
+            - name: torrent-web
+              containerPort: 9091
+              protocol: TCP
+            - name: torrent-tcp
+              containerPort: 31502
+              protocol: TCP
+            - name: torrent-udp
+              containerPort: 31503
+              protocol: UDP
+          volumeMounts:
+            - name: hm-volume
+              mountPath: ./downloads
+              subPath: ./home-media/downloads
+            - name: hm-volume
+              mountPath: ./config
+              subPath: ./home-media/transmission/config
+            - name: hm-volume
+              mountPath: ./watch
+              subPath: ./home-media/transmission/watch
+          resources:
+            requests:
               memory: 512Mi
-              cpu: 500m
+              cpu: 128m
+            limits:
+              memory: 1024Mi
+              cpu: 256m
+        - name: jackett
+          image: linuxserver/jackett
+          imagePullPolicy: IfNotPresent
+          env:
+          - name: TZ
+            value: "Asia/Yerevan"
+          - name: PUID
+            value: "1000"
+          - name: PGID
+            value: "1000"
+          - name: USER
+            value: "admin"
+          - name: PASS
+            value: "tgbyhn123"
+          ports:
+            - name: jackett-web
+              containerPort: 9117
+              protocol: TCP
+          volumeMounts:
+            - name: hm-volume
+              mountPath: ./downloads
+              subPath: ./home-media/downloads
+            - name: hm-volume
+              mountPath: ./config
+              subPath: ./home-media/jackett/config
+          resources:
+            requests:
+              memory: 512Mi
+              cpu: 128m
+            limits:
+              memory: 1024Mi
+              cpu: 256m
+        - name: jellyfin
+          image: linuxserver/jellyfin
+          imagePullPolicy: IfNotPresent
+          env:
+          - name: TZ
+            value: "Asia/Yerevan"
+          - name: PUID
+            value: "1000"
+          - name: PGID
+            value: "1000"
+          - name: USER
+            value: "admin"
+          - name: PASS
+            value: "tgbyhn123"
+          ports:
+            - name: jellyfin-web
+              containerPort: 8096
+            - name: jellyfin-tcp
+              containerPort: 8920
+            - name: jellyfin-udp
+              containerPort: 7359
+              protocol: UDP
+          volumeMounts:
+            - name: hm-volume
+              mountPath: ./data
+              subPath: ./home-media/downloads
+            - name: hm-volume
+              mountPath: ./config
+              subPath: ./home-media/jellyfin/config
+          resources:
+            requests:
+              memory: 512Mi
+              cpu: 128m
+            limits:
+              memory: 1024Mi
+              cpu: 256m
       volumes:
         - name: hm-volume
           persistentVolumeClaim:

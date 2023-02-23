@@ -26,5 +26,5 @@ spec:
     storage: 100Gi
   nfs: 
     path: "/mnt/nfs_share"
-    server: 192.168.50.3
+    server: k8sworker.home.lab
   storageClassName: nfs
