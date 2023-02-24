@@ -31,7 +31,7 @@ spec:
             - name: hm-volume
               mountPath: /downloads
               subPath: ./home-media/downloads
-            - name: hm-volume
+            - name: hm-local-volume
               mountPath: /config
               subPath: ./home-media/sonarr/config
           resources:
@@ -154,3 +154,7 @@ spec:
         - name: hm-volume
           persistentVolumeClaim:
             claimName: hm-claim
+        - name: hm-local-volume
+          hostPath:
+            path: /home/dinar/nfs_share/home-media/sonarr/config #mounted on a worker NFS directory. cause SQlite on a sonarr had some issues with direct connections on NFS server
+            type: DirectoryOrCreate
