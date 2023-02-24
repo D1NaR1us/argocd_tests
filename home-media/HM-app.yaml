@@ -33,7 +33,6 @@ spec:
               subPath: ./home-media/downloads
             - name: hm-local-volume
               mountPath: /config
-              subPath: ./home-media/sonarr/config
           resources:
             requests:
               memory: 1Gi
