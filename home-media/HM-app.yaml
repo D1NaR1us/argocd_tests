@@ -36,11 +36,11 @@ spec:
               subPath: ./home-media/sonarr/config
           resources:
             requests:
-              memory: 512Mi
-              cpu: 128m
-            limits:
-              memory: 1024Mi
+              memory: 1Gi
               cpu: 256m
+            limits:
+              memory: 2Gi
+              cpu: 500m
         - name: transmission
           image: linuxserver/transmission
           imagePullPolicy: IfNotPresent
