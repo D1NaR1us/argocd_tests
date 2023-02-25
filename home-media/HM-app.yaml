@@ -35,11 +35,11 @@ spec:
               mountPath: /config
           resources:
             requests:
-              memory: 1Gi
-              cpu: 256m
+              memory: 512Mi
+              cpu: 128m
             limits:
-              memory: 2Gi
-              cpu: 500m
+              memory: 1024Mi
+              cpu: 256m
         - name: transmission
           image: linuxserver/transmission
           imagePullPolicy: IfNotPresent
@@ -152,8 +152,12 @@ spec:
       volumes:
         - name: hm-volume
           persistentVolumeClaim:
+<<<<<<< HEAD
             claimName: hm-claim
         - name: hm-local-volume
           hostPath:
             path: /home/dinar/nfs_share/home-media/sonarr/config #mounted on a worker NFS directory. cause SQlite on a sonarr had some issues with direct connections on NFS server
             type: DirectoryOrCreate
+=======
+            claimName: hm-claim
+>>>>>>> parent of ce1affc (Update HM-app.yaml)
