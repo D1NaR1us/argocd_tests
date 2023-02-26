@@ -31,15 +31,15 @@ spec:
             - name: hm-volume
               mountPath: /downloads
               subPath: ./home-media/downloads
-            - name: hm-volume
+            - name: cephfs-volume
               mountPath: /config
               subPath: ./home-media/sonarr/config
           resources:
             requests:
-              memory: 1Gi
+              memory: 512Mi
               cpu: 256m
             limits:
-              memory: 2Gi
+              memory: 1Gi
               cpu: 500m
         - name: transmission
           image: linuxserver/transmission
@@ -69,18 +69,18 @@ spec:
             - name: hm-volume
               mountPath: ./downloads
               subPath: ./home-media/downloads
-            - name: hm-volume
+            - name: cephfs-volume
               mountPath: ./config
               subPath: ./home-media/transmission/config
-            - name: hm-volume
+            - name: cephfs-volume
               mountPath: ./watch
               subPath: ./home-media/transmission/watch
           resources:
             requests:
-              memory: 512Mi
+              memory: 1024Mi
               cpu: 128m
             limits:
-              memory: 1024Mi
+              memory: 2048Mi
               cpu: 256m
         - name: jackett
           image: linuxserver/jackett
@@ -104,15 +104,15 @@ spec:
             - name: hm-volume
               mountPath: ./downloads
               subPath: ./home-media/downloads
-            - name: hm-volume
+            - name: cephfs-volume
               mountPath: ./config
               subPath: ./home-media/jackett/config
           resources:
             requests:
-              memory: 512Mi
+              memory: 256Mi
               cpu: 128m
             limits:
-              memory: 1024Mi
+              memory: 512Mi
               cpu: 256m
         - name: jellyfin
           image: linuxserver/jellyfin
@@ -140,7 +140,7 @@ spec:
             - name: hm-volume
               mountPath: ./data
               subPath: ./home-media/downloads
-            - name: hm-volume
+            - name: cephfs-volume
               mountPath: ./config
               subPath: ./home-media/jellyfin/config
           resources:
@@ -154,3 +154,11 @@ spec:
         - name: hm-volume
           persistentVolumeClaim:
             claimName: hm-claim
+        - name: cephfs-volume
+          cephfs:
+            monitors:
+              - 192.168.50.10
+            user: admin
+            secretRef:
+              name: ceph-secret
+            readOnly: false
