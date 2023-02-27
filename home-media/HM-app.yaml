@@ -145,11 +145,11 @@ spec:
               subPath: ./home-media/jellyfin/config
           resources:
             requests:
-              memory: 512Mi
-              cpu: 128m
-            limits:
-              memory: 1024Mi
+              memory: 2048Mi
               cpu: 256m
+            limits:
+              memory: 2048Mi
+              cpu: 500m
       volumes:
         - name: hm-volume
           persistentVolumeClaim:
