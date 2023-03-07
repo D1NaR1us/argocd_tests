@@ -16,7 +16,7 @@ spec:
       containers:
         - name: sonarr
           image: linuxserver/sonarr
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           env:
             - name: TZ
               value: "Asia/Yerevan"
@@ -43,7 +43,7 @@ spec:
               cpu: 500m
         - name: transmission
           image: linuxserver/transmission
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           env:
           - name: TZ
             value: "Asia/Yerevan"
@@ -84,7 +84,7 @@ spec:
               cpu: 256m
         - name: jackett
           image: linuxserver/jackett
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           env:
           - name: TZ
             value: "Asia/Yerevan"
@@ -116,7 +116,7 @@ spec:
               cpu: 256m
         - name: jellyfin
           image: linuxserver/jellyfin
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           env:
           - name: TZ
             value: "Asia/Yerevan"
