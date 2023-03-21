@@ -22,7 +22,7 @@ jobs:
           echo $tag
           pip install yq
           echo ######################################################
-          cat nginx/nginx.yaml
+          cat nginx/nginx-app.yaml
           echo ######################################################
           yq --arg version "${tag}" '.spec.template.spec.containers[0].image|= sub(split("d1nar1us/mynginx:")[1]; $version)' nginx/nginx-app.yaml -yi
           cat nginx/nginx-app.yaml
