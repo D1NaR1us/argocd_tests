@@ -2,6 +2,14 @@ name: new-test_wf
 
 on:
   workflow_dispatch:
+  workflow_run: 
+    workflows: ["Publish Nginx Docker image"]
+    types:
+      - completed
+  push:
+    branches: [ "main" ]
+    paths:
+      - nginx/nginx.yaml
 
 jobs:
   docker:
