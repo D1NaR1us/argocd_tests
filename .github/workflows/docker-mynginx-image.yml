@@ -25,7 +25,7 @@ jobs:
           cat nginx/nginx.yaml
           echo ######################################################
           yq --arg version "${tag}" '.spec.template.spec.containers[0].image|= sub(split("d1nar1us/mynginx:")[1]; $version)' nginx/nginx-app.yaml -yi
-          cat nginx/nginx.yaml
+          cat nginx/nginx-app.yaml
       - name: git push
         run: |    
           git config --global user.email ${{ secrets.MYGITHUB_EMAIL }}
