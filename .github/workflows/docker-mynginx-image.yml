@@ -30,7 +30,7 @@ jobs:
         run: |    
           git config --global user.email ${{ secrets.MYGITHUB_EMAIL }}
           git config --global user.name ${{ secrets.MYGITHUB_USERNAME }}
-          git add nginx/nginx.yaml
+          git add nginx/nginx-app.yaml
           git commit -m "updated by github actions"
           git push
           echo $tag
