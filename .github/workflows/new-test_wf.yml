@@ -9,7 +9,7 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - nginx/nginx.yaml
+      - nginx/nginx-app.yaml
 
 jobs:
   docker:
