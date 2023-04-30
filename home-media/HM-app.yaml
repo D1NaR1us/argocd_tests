@@ -36,10 +36,10 @@ spec:
               subPath: ./home-media/sonarr/config
           resources:
             requests:
-              memory: 512Mi
+              memory: 1024Mi
               cpu: 256m
             limits:
-              memory: 1Gi
+              memory: 2Gi
               cpu: 500m
         - name: transmission
           image: linuxserver/transmission
@@ -109,10 +109,10 @@ spec:
               subPath: ./home-media/jackett/config
           resources:
             requests:
-              memory: 256Mi
+              memory: 1024Mi
               cpu: 128m
             limits:
-              memory: 512Mi
+              memory: 2048Mi
               cpu: 256m
         - name: jellyfin
           image: linuxserver/jellyfin
