@@ -157,7 +157,7 @@ spec:
         - name: cephfs-volume
           cephfs:
             monitors:
-              - proxmox.home.lab
+              - 192.168.5.10
             user: admin
             secretRef:
               name: ceph-secret
