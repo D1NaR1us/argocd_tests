@@ -19,7 +19,7 @@ jobs:
         run: |
           echo "${{ vars.TEST_VERSION }}"
           tag = ${{ vars.TEST_VERSION }}
-          echo "$tag" >> $GITHUB_ENV
+          echo "${tag}" >> $GITHUB_ENV
       - name: Checkout code
         run: |
           echo "$tag"
