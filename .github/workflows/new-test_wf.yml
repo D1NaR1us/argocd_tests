@@ -15,11 +15,12 @@ jobs:
   docker:
     runs-on: ubuntu-latest 
     steps:
-      - name: Checkout code
+      - name: Set the value
+        id: step_one
         run: |
-          echo "${{ vars.TEST_VERSION }}"
-          tag = ${{ vars.TEST_VERSION }}
-          echo $tag >> $GITHUB_ENV
-      - name: Checkout code
+          echo "action_state=yellow" >> "$GITHUB_ENV"
+      - name: Use the value
+        id: step_two
         run: |
-          echo $tag
+
+          echo "${{ env.action_state }}"
