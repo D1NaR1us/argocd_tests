@@ -16,4 +16,4 @@ jobs:
     runs-on: ubuntu-latest 
     steps:
       - name: Checkout code
-        run: echo "${{ var.TEST_VERSION }}"
+        run: echo "${{ vars.TEST_VERSION }}"
