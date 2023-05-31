@@ -16,4 +16,9 @@ jobs:
     runs-on: ubuntu-latest 
     steps:
       - name: Checkout code
-        run: echo "${{ vars.TEST_VERSION }}"
+        run: |
+          echo "${{ vars.TEST_VERSION }}"
+          tag = ${{ vars.TEST_VERSION }}
+          echo "tag=${tag}" >> $GITHUB_ENV
+      - name: Checkout code
+        run: echo "${tag}"
