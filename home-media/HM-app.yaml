@@ -36,10 +36,10 @@ spec:
               subPath: ./home-media/sonarr/config
           resources:
             requests:
-              memory: 1024Mi
+              memory: 500Mi
               cpu: 256m
             limits:
-              memory: 2Gi
+              memory: 1024Mi
               cpu: 500m
         - name: transmission
           image: linuxserver/transmission
@@ -51,10 +51,6 @@ spec:
             value: "1000"
           - name: PGID
             value: "1000"
-          - name: USER
-            value: "admin"
-          - name: PASS
-            value: "tgbyhn123"
           ports:
             - name: torrent-web
               containerPort: 9091
@@ -77,10 +73,10 @@ spec:
               subPath: ./home-media/transmission/watch
           resources:
             requests:
-              memory: 1024Mi
+              memory: 500Mi
               cpu: 128m
             limits:
-              memory: 2048Mi
+              memory: 1024Mi
               cpu: 256m
         - name: jackett
           image: linuxserver/jackett
@@ -92,10 +88,6 @@ spec:
             value: "1000"
           - name: PGID
             value: "1000"
-          - name: USER
-            value: "admin"
-          - name: PASS
-            value: "tgbyhn123"
           ports:
             - name: jackett-web
               containerPort: 9117
@@ -109,10 +101,10 @@ spec:
               subPath: ./home-media/jackett/config
           resources:
             requests:
-              memory: 1024Mi
+              memory: 500Mi
               cpu: 128m
             limits:
-              memory: 2048Mi
+              memory: 1024Mi
               cpu: 256m
         - name: jellyfin
           image: linuxserver/jellyfin
@@ -124,10 +116,6 @@ spec:
             value: "1000"
           - name: PGID
             value: "1000"
-          - name: USER
-            value: "admin"
-          - name: PASS
-            value: "tgbyhn123"
           ports:
             - name: jellyfin-web
               containerPort: 8096
@@ -145,10 +133,10 @@ spec:
               subPath: ./home-media/jellyfin/config
           resources:
             requests:
-              memory: 2048Mi
+              memory: 500Mi
               cpu: 256m
             limits:
-              memory: 2048Mi
+              memory: 1024Mi
               cpu: 500m
       volumes:
         - name: hm-volume
