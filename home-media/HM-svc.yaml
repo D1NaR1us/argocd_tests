@@ -12,34 +12,20 @@ spec:
     port: 8989
     targetPort: 8989
     nodePort: 31500
+  - name: radarr-web
+    port: 7878
+    targetPort: 7878
+    nodePort: 30500
+    protocol: TCP
   - name: torrent-web
     port: 9091
     targetPort: 9091
-    nodePort: 31501
+    nodePort: 31502
   - name: jackett-web
     port: 9117
     targetPort: 9117
-    nodePort: 31502
+    nodePort: 31503
   - name: jellyfin-web
     port: 8096
     targetPort: 8096
-    nodePort: 31503
-  - name: torrent-tcp
-    port: 51413
-    targetPort: 51413
     nodePort: 31504
-    protocol: TCP
-  - name: torrent-udp
-    port: 51413
-    targetPort: 51413
-    nodePort: 31505
-    protocol: UDP
-  - name: jellyfin-tcp
-    port: 8920
-    targetPort: 8920
-    nodePort: 31506
-  - name: jellyfin-udp
-    port: 7359
-    targetPort: 7359
-    nodePort: 31507
-    protocol: UDP
