@@ -1,6 +1,6 @@
 # argocd_tests
->[!TIP]
->[!INFORMATION]
->[!NOTE]
->[!IMPORTANT]
->[!WARNING]
+[!TIP]
+[!INFORMATION]
+[!NOTE]
+[!IMPORTANT]
+[!WARNING]
