@@ -2,7 +2,7 @@
 > [!TIP]
 > test
 
-> [!INFORMATION] 
+> [!INFO] 
 > test
 
 > [!NOTE]
