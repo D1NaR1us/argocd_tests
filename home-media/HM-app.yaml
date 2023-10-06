@@ -172,7 +172,7 @@ spec:
         - name: cephfs-volume
           cephfs:
             monitors:
-              - 192.168.5.10
+              - 192.168.50.10
             user: admin
             secretRef:
               name: ceph-secret
