@@ -16,7 +16,7 @@ spec:
       containers:
         - name: sonarr
           image: linuxserver/sonarr
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           env:
             - name: TZ
               value: "Asia/Yerevan"
@@ -29,7 +29,7 @@ spec:
               containerPort: 8989
           volumeMounts:
             - name: hm-volume
-              mountPath: /downloads
+              mountPath: ./downloads
               subPath: ./home-media/downloads
             - name: cephfs-volume
               mountPath: /config
@@ -43,7 +43,7 @@ spec:
               cpu: 500m
         - name: radarr
           image: linuxserver/radarr
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           env:
             - name: TZ
               value: "Asia/Yerevan"
@@ -70,7 +70,7 @@ spec:
               cpu: 500m
         - name: transmission
           image: linuxserver/transmission
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           env:
           - name: TZ
             value: "Asia/Yerevan"
@@ -107,7 +107,7 @@ spec:
               cpu: 256m
         - name: jackett
           image: linuxserver/jackett
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           env:
           - name: TZ
             value: "Asia/Yerevan"
@@ -135,7 +135,7 @@ spec:
               cpu: 256m
         - name: jellyfin
           image: linuxserver/jellyfin
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           env:
           - name: TZ
             value: "Asia/Yerevan"
