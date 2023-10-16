@@ -15,7 +15,7 @@ spec:
   - name: radarr-web
     port: 7878
     targetPort: 7878
-    nodePort: 30500
+    nodePort: 30501
     protocol: TCP
   - name: torrent-web
     port: 9091
