@@ -165,8 +165,8 @@ spec:
             limits:
               memory: 1024Mi
               cpu: 500m
-        - name: heimdall
-          image: linuxserver/heimdall
+        - name: homepage
+          image: ghcr.io/gethomepage/homepage:latest
           imagePullPolicy: IfNotPresent
           env:
           - name: TZ
@@ -176,12 +176,12 @@ spec:
           - name: PGID
             value: "1000"
           ports:
-            - name: heimdall-web
-              containerPort: 80
+            - name: homepage-web
+              containerPort: 3000
           volumeMounts:
             - name: cephfs-volume
               mountPath: ./config
-              subPath: ./home-media/heimdall/config
+              subPath: ./home-media/homepage/config
           resources:
             requests:
               memory: 500Mi
