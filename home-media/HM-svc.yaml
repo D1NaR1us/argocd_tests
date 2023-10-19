@@ -15,7 +15,7 @@ spec:
   - name: radarr-web
     port: 7878
     targetPort: 7878
-    nodePort: 30501
+    nodePort: 31501
     protocol: TCP
   - name: torrent-web
     port: 9091
@@ -29,3 +29,7 @@ spec:
     port: 8096
     targetPort: 8096
     nodePort: 31504
+  - name: heimdall-web
+    port: 80
+    targetPort: 80
+    nodePort: 31505
