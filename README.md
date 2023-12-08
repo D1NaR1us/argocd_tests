@@ -5,9 +5,9 @@
 > [!INFO] 
 > test
 
->[!NOTE]Additional information 
-><details><summary>FAQ</summary>
-></details>
+> [!NOTE] Additional information 
+> <details><summary>FAQ</summary>
+> </details>
 
 > [!NOTE] 
 > test
