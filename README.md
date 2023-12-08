@@ -5,7 +5,11 @@
 > [!INFO] 
 > test
 
-> [!NOTE]
+>[!NOTE] Additional information 
+><details><summary>FAQ</summary>
+></details>
+
+> [!NOTE] 
 > test
 
 > [!IMPORTANT]
