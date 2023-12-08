@@ -5,7 +5,7 @@
 > [!INFO] 
 > test
 
-> [!NOTE](test)
+> [!note]
 > <details><summary>FAQ</summary>
 > </details>
 
