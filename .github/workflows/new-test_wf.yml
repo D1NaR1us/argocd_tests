@@ -3,7 +3,7 @@ name: new-test_wf
 on:
   workflow_dispatch:
   schedule:
-  - cron: "0 12 1-7 * WED"
+  - cron: "10 15 1-7 * WED"
   workflow_run: 
     workflows: ["Publish Nginx Docker image"]
     types:
